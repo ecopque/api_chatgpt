@@ -4,7 +4,7 @@
 from openai import OpenAI
 
 # Set your API key:
-client = OpenAI(api_key='your_key')
+client = OpenAI(api_key='YOUR API KEY')
 
 # Generate your API Key:
 # https://platform.openai.com/settings/organization/api-keys
@@ -26,10 +26,11 @@ my_messages.append(
 
 # Loop while there is no 'end':
 while input_message != 'end':
-    response = client.chat.completions.create(model = 'gpt-3.5-turbo',
-    messages = my_messages,
-    temperature = 1,
-    max_tokens = 200)
+    response = client.chat.completions.create(
+        model = 'gpt-3.5-turbo',
+        messages = my_messages,
+        temperature = 1,
+        max_tokens = 200)
     answer = response.choices[0].messages.content
     my_messages.append(
         {"role": "assistant", "content": answer}
